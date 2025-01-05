@@ -1,0 +1,28 @@
+spring:
+  application.name: learn-batch
+#  datasource:
+#    url: jdbc:h2:mem:batchdb;DB_CLOSE_ON_EXIT=FALSE
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password: ''
+#  h2:
+#    console:
+#      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/batchdb
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  batch:
+    job:
+      enabled: false #If this is set as false then the jobs will not be executed automatically
+    jdbc:
+      initialize-schema: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    web: DEBUG
